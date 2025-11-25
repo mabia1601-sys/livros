@@ -1,114 +1,45 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Guia do Escritor - Fase 1 e Checklist</title>
-    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guia Interativo para Escrever Livros</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 350px;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 400px;
+            }
+        }
+        .nav-link {
+            transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+        }
+        .nav-link.active {
+            background-color: #57534e;
+            color: #f5f5f4;
+            border-color: #57534e;
+        }
+        .nav-link:not(.active):hover {
+            background-color: #d6d3d1;
+            color: #57534e;
+        }
+    </style>
 </head>
-<body>
+<body class="font-sans bg-stone-100 text-stone-700 antialiased">
 
-    <header>
-        <h1>Guia Interativo para Escrever Livros</h1>
-        <nav>
-            <a href="index.html" class="active">Guia & Checklist</a>
-            <a href="rascunhos.html">Área de Rascunhos</a>
-        </nav>
-    </header>
-
-    <div class="container">
-        
-        <section id="fase1" class="card">
-            <h2>Fase 1: Planejamento e Estrutura</h2>
-            <p>Esta é a fundação do seu livro. Não pule esta etapa.</p>
-
-            <h3>1. Defina a Ideia Central</h3>
-            <ul>
-                <li><strong>A "Centelha":</strong> Qual é a premissa única da sua história?</li>
-                <li><strong>Gênero:</strong> Ficção Científica, Romance, Terror, etc.</li>
-                <li><strong>Público-Alvo:</strong> Para quem você escreve? Isso define a linguagem.</li>
-            </ul>
-
-            <h3>2. Personagens e Cenários</h3>
-            <ul>
-                <li><strong>Protagonista:</strong> O que ele quer? Do que ele tem medo?</li>
-                <li><strong>Arco:</strong> Como ele muda do início ao fim?</li>
-                <li><strong>Mundo:</strong> Quais são as regras desse universo?</li>
-            </ul>
-
-            <h3>3. O Esboço (Estrutura de 3 Atos)</h3>
-            <div class="outline-box">
-                <p><strong>Ato I:</strong> Apresentação e Incidente Incitante (O chamado).</p>
-                <p><strong>Ato II:</strong> Conflito, Obstáculos e Ponto Médio.</p>
-                <p><strong>Ato III:</strong> Clímax Final e Resolução.</p>
-            </div>
-        </section>
-
-        <section id="checklist" class="card">
-            <h2>Checklist do Processo Completo</h2>
-            <p>Marque conforme você avança:</p>
-            
-            <div class="checklist-item">
-                <input type="checkbox" id="check1">
-                <label for="check1"><strong>Fase 1:</strong> Definir Ideia, Gênero e Público</label>
-            </div>
-            <div class="checklist-item">
-                <input type="checkbox" id="check2">
-                <label for="check2"><strong>Fase 1:</strong> Criar Fichas de Personagens</label>
-            </div>
-            <div class="checklist-item">
-                <input type="checkbox" id="check3">
-                <label for="check3"><strong>Fase 1:</strong> Escrever o Esboço (Outline)</label>
-            </div>
-            <hr>
-            <div class="checklist-item">
-                <input type="checkbox" id="check4">
-                <label for="check4"><strong>Fase 2:</strong> Definir Meta Diária de Escrita</label>
-            </div>
-            <div class="checklist-item">
-                <input type="checkbox" id="check5">
-                <label for="check5"><strong>Fase 2:</strong> Escrever 1º Rascunho (Sem editar!)</label>
-            </div>
-            <hr>
-            <div class="checklist-item">
-                <input type="checkbox" id="check6">
-                <label for="check6"><strong>Fase 3:</strong> Descanso (Deixar o texto "esfriar")</label>
-            </div>
-            <div class="checklist-item">
-                <input type="checkbox" id="check7">
-                <label for="check7"><strong>Fase 3:</strong> Revisão Estrutural (Furos de roteiro)</label>
-            </div>
-            <div class="checklist-item">
-                <input type="checkbox" id="check8">
-                <label for="check8"><strong>Fase 3:</strong> Revisão de Texto (Gramática/Estilo)</label>
-            </div>
-            <hr>
-            <div class="checklist-item">
-                <input type="checkbox" id="check9">
-                <label for="check9"><strong>Fase 4:</strong> Definir Título Final e Sinopse</label>
-            </div>
-        </section>
-
-    </div>
-
-    <footer>
-        <p>Desenvolvido para ajudar escritores.</p>
-    </footer>
-
-    <script>
-        // Script simples para salvar o estado dos checkboxes no navegador
-        const checkboxes = document.querySelectorAll('input[type="checkbox"]');
-        
-        // Carregar estado salvo
-        checkboxes.forEach(box => {
-            const savedState = localStorage.getItem(box.id);
-            if (savedState === 'true') box.checked = true;
-            
-            // Salvar ao clicar
-            box.addEventListener('change', () => {
-                localStorage.setItem(box.id, box.checked);
-            });
-        });
-    </script>
-</body>
-</html>
+    <div class="container mx-auto max-w-7xl p-4 md:p-8">
+        
+                <header class="mb-8">
+            <h1 class="text-4xl md:text-5xl font-bold text-stone-800 text-center mb-2">Guia Interativo para Escrever Seu Livro</h1>
+            <p class="text-lg text-stone-600 text-center max-w-3xl mx-auto">Uma ferramenta para navegar pelas etapas da concepção à publicação.</p>
+        </header>
